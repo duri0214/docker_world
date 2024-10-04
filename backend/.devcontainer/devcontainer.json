@@ -1,0 +1,24 @@
+{
+  "name": "Python 3.12.4 FastAPI",
+  "build": { "dockerfile": "Dockerfile" },
+  "settings": {
+    "terminal.integrated.shell.linux": "/bin/bash"
+  },
+  "runArgs": [ "-p", "8080:8080" ],
+
+  // Set *default* container specific settings.json values on container create.
+  "settings": {
+    "python.pythonPath": "/usr/local/bin/python",
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": true,
+    "python.format.sortImports": true,
+    "python.analysis.extraPaths": ["/app"],
+    "python.testing.pytestArgs": ["/app"],
+    "python.testing.unittestEnabled": false,
+    "python.testing.nosetestsEnabled": false,
+    "python.testing.pytestEnabled": true
+  },
+
+  // Add the IDs of extensions you want installed when the container is created.
+  "extensions": ["ms-python.python"]
+}
