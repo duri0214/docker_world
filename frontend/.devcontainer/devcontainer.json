@@ -5,11 +5,5 @@
     "terminal.integrated.shell.linux": "/bin/bash"
   },
   "runArgs": [ "-p", "3000:3000" ],
-
-  // Set *default* container specific settings.json values on container create.
-  "settings": {
-  },
-
-  // Add the IDs of extensions you want installed when the container is created.
   "extensions": ["dbaeumer.vscode-eslint"]
 }
