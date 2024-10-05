@@ -12,10 +12,9 @@ RUN python -m pip install --upgrade pip
 # Install FastAPI and Uvicorn
 RUN pip install fastapi uvicorn
 
-WORKDIR /app
+#WORKDIR /app
 
 # Copy the application
-#COPY ../src /app
+COPY ./src /app
 
-# Print the current work directory's contents
-RUN ls
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "80"]
