@@ -1,6 +1,6 @@
 FROM python:3.12.4
 
-ENV TZ=Azia/Tokyo
+ENV TZ=Asia/Tokyo
 RUN apt-get update && apt-get install -y \
     bash curl git openssh-client zip \
     && apt-get clean \
@@ -12,9 +12,10 @@ RUN python -m pip install --upgrade pip
 # Install FastAPI and Uvicorn
 RUN pip install fastapi uvicorn
 
-#WORKDIR /app
+WORKDIR /app/src
 
 # Copy the application
-COPY ./src /app
+COPY ./src /app/src
 
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "80"]
+# uvicorn src.main:app --host 0.0.0.0 --port 8080 を手動でコンソール入力すればFastAPIの画面が出てくるが自動起動しない
+CMD ["uvicorn", "src.main:app", "--host", "0.0.0.0", "--port", "8080"]
