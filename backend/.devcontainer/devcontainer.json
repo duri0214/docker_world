@@ -1,4 +1,5 @@
 {
+  // devcontainer起動すると backend が基点になるのか？
   "name": "FastAPI Dev Container",
   "dockerFile": "./Dockerfile"
 }
