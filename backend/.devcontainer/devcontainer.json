@@ -1,5 +1,4 @@
 {
   "name": "FastAPI Dev Container",
-  "context": "..",
   "dockerFile": "./Dockerfile"
 }
