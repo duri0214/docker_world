@@ -1,5 +1,5 @@
 {
-  // devcontainer起動すると backend が基点になるのか？
   "name": "FastAPI Dev Container",
-  "dockerFile": "./Dockerfile"
+  "dockerFile": "./Dockerfile",
+  "postCreateCommand": "pip install -r src/requirements.txt"
 }
