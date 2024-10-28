@@ -1,9 +1,5 @@
 {
-  "name": "Node.js",
-  "build": { "dockerfile": "../Dockerfile" },
-  "settings": {
-    "terminal.integrated.shell.linux": "/bin/bash"
-  },
-  "runArgs": [ "-p", "3000:3000" ],
-  "extensions": ["dbaeumer.vscode-eslint"]
+  "name": "Node.js Dev Container",
+  "dockerFile": "./Dockerfile",
+  "postCreateCommand": "npm i"
 }
