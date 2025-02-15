@@ -18,6 +18,11 @@ cd <YOUR_REPOSITORY_NAME>
 
 ```shell
 # リンク先から必要ファイルをダウンロードし、現在のディレクトリにコピー
+- docker/.env.example
+- docker/Dockerfile.database
+- docker/build_admin_ui.sh
+- docker/entrypoint.sh
+- docker/prod_entrypoint.sh
 ```
 
 ---
@@ -26,6 +31,7 @@ cd <YOUR_REPOSITORY_NAME>
 データベースを使用するために、`Dockerfile.database` を `Dockerfile` にリネームします：
 
 ```shell
+cp .env.example .env
 mv Dockerfile.database Dockerfile
 ```
 
