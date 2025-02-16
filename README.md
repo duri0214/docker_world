@@ -23,6 +23,8 @@ cd <YOUR_REPOSITORY_NAME>
 - docker/build_admin_ui.sh
 - docker/entrypoint.sh
 - docker/prod_entrypoint.sh
+- pyproject.toml
+- litellm
 ```
 
 ---
@@ -53,3 +55,6 @@ PyCharmを使用して、Dev Containerとしてプロジェクトを起動しま
 - 左下のツールバーから「Dev Containers」を選択し、コンテナを起動します。
 
 > 詳細なセットアップ方法はPyCharmの公式ドキュメントをご参照ください。
+
+### 6.
+poetry run litellm
