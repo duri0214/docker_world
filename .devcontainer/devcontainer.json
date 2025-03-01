@@ -1,0 +1,24 @@
+{
+	"name": "FastAPI Dev Container",
+	"dockerComposeFile": "../docker-compose.yml",
+	"service": "fastapi",
+	"postCreateCommand": "/workspace/.devcontainer/setup.sh",
+	"workspaceFolder": "/workspace",
+	"containerEnv": {
+		"SHELL": "/bin/bash"
+	},
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"editor.defaultFormatter": "ms-python.black-formatter",
+				"editor.formatOnSave":true,
+				"editor.formatOnPaste": true
+			},
+			"extensions": [
+				"ms-python.black-formatter",
+				"ms-python.flake8",
+				"humao.rest-client"
+			]
+		}
+	}
+}
