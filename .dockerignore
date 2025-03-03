@@ -1,0 +1,4 @@
+# .venv をdocker デーモンに送信すると、hostのファイルとして上書きされ `汚染` されます
+.venv/
+__pycache__/
+.pytest_cache/
