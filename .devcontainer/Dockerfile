@@ -26,6 +26,5 @@ RUN pwd && ls -la
 # ユーザー変更
 USER $USER_NAME
 
-# 確認: ここでsleepしないとコンテナが終わってしまう
+# TODO: のちに本番用Dockerfileに移すと良い
 #CMD ["uvicorn", "src.main:app", "--host", "0.0.0.0", "--port", "8000"]
-# CMD ["sleep", "infinity"]
