@@ -1,8 +1,7 @@
 #!/bin/bash
 
 # 共通変数
-WORKDIR="/workspace"
-VENV_DIR="$WORKDIR/.venv"
+VENV_DIR=".venv"
 
 # 仮想環境の作成
 if [ ! -d "$VENV_DIR" ]; then
@@ -27,10 +26,10 @@ else
 fi
 
 # requirements.txt の内容をインストール
-if [ -f "$WORKDIR/requirements.txt" ]; then
+if [ -f "./requirements.txt" ]; then
     echo "requirements.txt からパッケージをインストール中..."
     pip install --upgrade pip
-    pip install --no-cache-dir -r $WORKDIR/requirements.txt
+    pip install --no-cache-dir -r ./requirements.txt
 else
     echo "requirements.txt が見つかりませんでした。"
 fi
