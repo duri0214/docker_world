@@ -8,6 +8,14 @@ ARG USER_GID=$USER_UID
 
 ENV TZ=Asia/Tokyo
 
+# `WORKDIR` で指定したカレントディレクトリは、イメージビルド時にのみ適用されます。
+WORKDIR $WORKDIR
+
+# チョンボしないで必要なものを $WORKDIR に転送しましょう
+COPY ./setup.sh $WORKDIR
+COPY ./requirements.txt $WORKDIR
+COPY ./src $WORKDIR/src
+
 # ユーザー作成
 RUN groupadd --gid $USER_GID $USER_NAME \
     && useradd --uid $USER_UID --gid $USER_GID -m $USER_NAME
@@ -17,8 +25,7 @@ RUN apt-get update && apt-get install -y \
     bash curl git openssh-client zip
 
 # 作業ディレクトリを設定
-RUN mkdir -p $WORKDIR && chown -R $USER_NAME:$USER_NAME $WORKDIR
-WORKDIR $WORKDIR
+RUN chown -R $USER_NAME:$USER_NAME $WORKDIR
 
 # 確認
 RUN pwd && ls -la
