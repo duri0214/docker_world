@@ -1,57 +1,70 @@
 # docker_world
+## 処理の流れ
+以下は、`devcontainer.json` を基点に Docker コンテナを利用して Python 開発環境をセットアップするプロセスを示しています。
+### 1. **`devcontainer.json` の読み込み**
+- Visual Studio Code の Dev Container 定義ファイル。
+- 定義された設定に基づき、コンテナのビルド・起動、およびセットアップを行います。
 
-### 処理の流れ
-1. **`devcontainer.json` の読み込み**:
-    - Visual Studio Code の Dev Container 定義ファイル。
-    - 定義された設定に基づいて、コンテナのビルド・起動・セットアップが行われます。
+### 2. **Dockerfile のビルド**
+- `devcontainer.json` の `"build"` セクションに従い、`Dockerfile` を使用して Docker イメージをビルドします。
+- 必要なスクリプト（例: `setup.sh` など）がビルド時にコンテナ内にコピーされます。
 
-2. **Dockerfile のビルド**:
-    - `devcontainer.json` の `"build"` セクションに従い、Dockerfile を使用して Docker イメージをビルド。
-    - 必要なファイル（`setup.sh` など）がコンテナにコピーされます。
+### 3. **Docker コンテナの起動**
+- ビルドした Docker イメージからコンテナを作成します。
+- この段階で必要な環境変数設定（例: `containerEnv`）、作業ディレクトリ設定（例: `workspaceFolder`）が反映されます。
 
-3. **Docker コンテナの起動**:
-    - ビルドしたイメージからコンテナを作成し、必要な設定（環境変数や作業ディレクトリなど）を反映した後に起動。
+### 4. **作業ディレクトリの設定**
+- コンテナ内の作業ディレクトリを `/workspace` に設定します。
+- これは `devcontainer.json` の `"workspaceFolder": "/workspace"` によって制御されています。
 
-4. **`setup.sh` の実行**:
-    - `devcontainer.json` の `"postCreateCommand"` によって、コンテナ内で `/workspace/setup.sh` が実行されます。
-    - 主な処理:
-        - 仮想環境 (`.venv`) の作成と有効化。
-        - `requirements.txt` に記載された Python パッケージのインストール。
+### 5. **`setup.sh` の実行**
+- `devcontainer.json` の `"postCreateCommand"` オプションを使用して、起動されたコンテナ内で `setup.sh` を実行します。
+- スクリプト内で行われる主な処理:
+    - 仮想環境 (`.venv`) の作成とシェル内での一時的な有効化。
+    - `requirements.txt` に記載された Python パッケージのインストール。
 
-5. **VS Code で仮想環境が自動的に有効化**:
-    - `devcontainer.json` の `"python.defaultInterpreterPath": "/workspace/.venv/bin/python"` に基づき、仮想環境がデフォルトのインタープリタとして設定されます。
-    - 開発環境が即使用可能な状態になります。
+### 6. **仮想環境の再度有効化**
+- 仮想環境は `setup.sh` 実行時に一時的に有効化されますが、シェルセッション終了後は無効になります。
+- そのため、`devcontainer.json` の以下の設定により、VS Code 内で仮想環境を再度有効化します:
 
-6. **VS Code のカスタマイズ設定の適用**:
-    - エディタ設定や拡張機能が適用され、より快適な開発環境が整います。
+```
+  "python.defaultInterpreterPath": "/workspace/.venv/bin/python"
+```
+- 開発環境において、この設定により `.venv` が自動的に Python インタープリタとして認識され、デフォルトで使用可能になります。
 
-### マーメイド記法によるシーケンス図
-以下に、`devcontainer.json` を中心とした具体的な処理フローを示します。
+### 7. **VS Code のカスタマイズ設定の適用**
+- 以下の拡張機能とエディタ設定が自動的に適用されます:
+    - **フォーマッタ**: `ms-python.black-formatter`
+    - **静的解析ツール**: `ms-python.flake8`
+    - **API テストツール**: `humao.rest-client`
+
+- 開発効率を高めるために、以下の VS Code 設定も反映されます:
+    - **コード整形**: `"editor.formatOnSave": true, "editor.formatOnPaste": true`
+
+## シーケンス図
+以下に、上記プロセスをマーメイド記法でシーケンス図として示します。
 
 ```mermaid
 sequenceDiagram
     participant DevContainer as devcontainer.json
     participant Docker as Dockerfile
-    participant Container as コンテナ
+    participant DevContainerInstance as devcontainer
     participant SetupScript as setup.sh
-    participant venv as 仮想環境 (venv)
 
     DevContainer->>Docker: Dockerfile をビルド
-    Docker->>Container: イメージ作成 & コンテナ起動
-    DevContainer->>SetupScript: postCreateCommand で setup.sh 実行
-    SetupScript->>venv: 仮想環境 (venv) 作成 & 有効化
-    venv->>SetupScript: requirements.txt を基にパッケージをインストール
-    DevContainer->>DevContainer: VS Code のデフォルトインタープリタを設定
-    DevContainer->>DevContainer: 拡張機能・エディタ設定を適用
+    Docker->>DevContainerInstance: イメージ作成 & devcontainer 起動
+    DevContainer->>DevContainerInstance: 作業ディレクトリを /workspace に設定
+    DevContainer->>SetupScript: postCreateCommand 実行
+    SetupScript->>DevContainerInstance: 仮想環境を作成 & 一時的に有効化 (venv activate)
+    SetupScript->>DevContainerInstance: requirements.txt からパッケージをインストール (pip install)
+    DevContainer->>DevContainerInstance: python.defaultInterpreterPath で仮想環境を再度有効化
 ```
-
-### 設定の重要ポイント
+## 設定の重要ポイント
 1. **仮想環境のセットアップ**:
-    - `devcontainer.json` の `"postCreateCommand": "/workspace/setup.sh"` によって、セットアップスクリプトが実行されます。
-    - 仮想環境が自動的に作成・有効化され、Python パッケージがインストールされます。
+    - `devcontainer.json` の `"postCreateCommand": "/workspace/setup.sh"` により仮想環境が作成され、必要な Python パッケージがインストールされます。
 
 2. **仮想環境の自動有効化**:
-    - `"python.defaultInterpreterPath": "/workspace/.venv/bin/python"` によって、セットアップ後の仮想環境が VS Code 内で自動的に有効となります。
+    - `"python.defaultInterpreterPath": "/workspace/.venv/bin/python"` によって、仮想環境がデフォルトの Python インタープリタとして設定されます。
 
 3. **カスタマイズ設定**:
-    - 拡張機能（例: `ms-python.black-formatter`）やエディタ設定が反映されるため、追加設定不要で開発をすぐに開始できます。
+    - `devcontainer.json` に定義された拡張機能やエディタ設定を利用することで、開発作業を即座に始められる環境が用意されます。
