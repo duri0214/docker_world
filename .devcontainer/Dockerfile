@@ -8,7 +8,7 @@ ARG USER_GID=$USER_UID
 
 ENV TZ=Asia/Tokyo
 
-# `WORKDIR` で指定したカレントディレクトリは、イメージビルド時にのみ適用されます。
+# `WORKDIR` で指定したカレントディレクトリは、ビルドセッション中のみ適用されます。
 WORKDIR $WORKDIR
 
 # チョンボしないで必要なものを $WORKDIR に転送しましょう
@@ -27,9 +27,6 @@ RUN apt-get update && apt-get install -y \
 
 # 作業ディレクトリを設定
 RUN chown -R $USER_NAME:$USER_NAME $WORKDIR
-
-# 確認
-RUN pwd && ls -la
 
 # ユーザー変更
 USER $USER_NAME
