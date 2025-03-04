@@ -12,6 +12,7 @@ ENV TZ=Asia/Tokyo
 WORKDIR $WORKDIR
 
 # チョンボしないで必要なものを $WORKDIR に転送しましょう
+COPY ./.vscode $WORKDIR/.vscode
 COPY ./setup.sh $WORKDIR
 COPY ./requirements.txt $WORKDIR
 COPY ./src $WORKDIR/src
