@@ -1,7 +1,8 @@
 #!/bin/bash
 
 # 共通変数
-VENV_DIR=".venv"
+BASE_DIR="/workspace"
+VENV_DIR="$BASE_DIR/.venv"
 
 # 仮想環境の作成
 if [ ! -d "$VENV_DIR" ]; then
@@ -11,7 +12,7 @@ else
     echo "仮想環境は既に存在します。"
 fi
 
-# 仮想環境をアクティベート
+# 仮想環境をアクティベート（シェルのなかのみ有効）
 source $VENV_DIR/bin/activate
 
 # 仮想環境の確認
@@ -26,10 +27,10 @@ else
 fi
 
 # requirements.txt の内容をインストール
-if [ -f "./requirements.txt" ]; then
+if [ -f "$BASE_DIR/requirements.txt" ]; then
     echo "requirements.txt からパッケージをインストール中..."
     pip install --upgrade pip
-    pip install --no-cache-dir -r ./requirements.txt
+    pip install --no-cache-dir -r $BASE_DIR/requirements.txt
 else
     echo "requirements.txt が見つかりませんでした。"
 fi
