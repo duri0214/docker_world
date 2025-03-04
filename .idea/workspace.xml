@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bd9fbeeb-49d9-41d6-8d11-0fca37c99cb5" name="Changes" comment="" />
+    <list default="true" id="bd9fbeeb-49d9-41d6-8d11-0fca37c99cb5" name="Changes" comment="Update workspace.xml with adjusted work item duration&#10;&#10;The change modifies the duration of a specific work item in the workspace.xml file. This is likely an update to reflect the correct timing for the task. No functional code or logic is affected.">
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -54,10 +56,33 @@
       <workItem from="1740820283297" duration="17000" />
       <workItem from="1740830843698" duration="1083000" />
       <workItem from="1741089286154" duration="7479000" />
+      <workItem from="1741099104508" duration="861000" />
     </task>
+    <task id="LOCAL-00001" summary="Add detailed setup instructions to README&#10;&#10;Expand README to include step-by-step instructions for setting up the development environment using devcontainer.json and Docker. Details cover virtual environment setup, automatic configurations, and usage tips for VS Code and CLI.">
+      <option name="closed" value="true" />
+      <created>1741099732489</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1741099732489</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Update workspace.xml with adjusted work item duration&#10;&#10;The change modifies the duration of a specific work item in the workspace.xml file. This is likely an update to reflect the correct timing for the task. No functional code or logic is affected.">
+      <option name="closed" value="true" />
+      <created>1741099743027</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1741099743027</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Add detailed setup instructions to README&#10;&#10;Expand README to include step-by-step instructions for setting up the development environment using devcontainer.json and Docker. Details cover virtual environment setup, automatic configurations, and usage tips for VS Code and CLI." />
+    <MESSAGE value="Update workspace.xml with adjusted work item duration&#10;&#10;The change modifies the duration of a specific work item in the workspace.xml file. This is likely an update to reflect the correct timing for the task. No functional code or logic is affected." />
+    <option name="LAST_COMMIT_MESSAGE" value="Update workspace.xml with adjusted work item duration&#10;&#10;The change modifies the duration of a specific work item in the workspace.xml file. This is likely an update to reflect the correct timing for the task. No functional code or logic is affected." />
   </component>
 </project>
