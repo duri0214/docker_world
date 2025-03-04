@@ -1,9 +1,8 @@
 {
 	"name": "FastAPI Dev Container",
 	"build": {
-		// TODO: のちほど ./Dockerfile は撤去し、親ディレクトリの本番用 ../Dockerfile を利用しながらfeatures
-		"dockerfile": "./Dockerfile",
-		"context": ".."
+		"dockerfile": "./Dockerfile",// TODO: のちほど 親ディレクトリの本番用 ../Dockerfile を利用 + features でセットアップする形にする
+		"context": ".."  // 必要: buildの基準位置を示す
 	},
 	// "runArgs": ["--network=dev_network"],
 	"containerEnv": {
@@ -14,7 +13,7 @@
 	"customizations": {
 		"vscode": {
 			"settings": {
-				"python.defaultInterpreterPath": "/workspace/.venv/bin/python",  // 必要: セットアップ完了後に venv activate
+				"python.defaultInterpreterPath": "/workspace/.venv/bin/python",  // 必要: セットアップ完了後に activate する
 				"editor.defaultFormatter": "ms-python.black-formatter",
 				"editor.formatOnSave":true,
 				"editor.formatOnPaste": true
