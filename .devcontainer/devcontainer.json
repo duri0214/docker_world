@@ -3,17 +3,18 @@
 	"build": {
 		// TODO: のちほど ./Dockerfile は撤去し、親ディレクトリの本番用 ../Dockerfile を利用しながらfeatures
 		"dockerfile": "./Dockerfile",
-		"context": "."
+		"context": ".."
 	},
 	// "runArgs": ["--network=dev_network"],
 	"containerEnv": {
 		"SHELL": "/bin/bash"
 	},
-	// TODO: なんで /workspace/docker_world なんだ？？
-	"postCreateCommand": ".devcontainer/setup.sh",
+	"postCreateCommand": "/workspace/setup.sh",
+	"workspaceFolder": "/workspace",  // 必要: セットアップ完了後に cd する
 	"customizations": {
 		"vscode": {
 			"settings": {
+				"python.defaultInterpreterPath": "/workspace/.venv/bin/python",  // 必要: セットアップ完了後に venv activate
 				"editor.defaultFormatter": "ms-python.black-formatter",
 				"editor.formatOnSave":true,
 				"editor.formatOnPaste": true
