@@ -1,7 +1,7 @@
 FROM python:3.12.9-slim-bullseye
 
 # 共通変数
-ARG WORKDIR=/workspace/docker_world
+ARG WORKDIR=/workspace
 ARG USER_NAME=vscode
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
