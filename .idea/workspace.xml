@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="bd9fbeeb-49d9-41d6-8d11-0fca37c99cb5" name="Changes" comment="Simplify and enhance README structure and content&#10;&#10;Refined the README to improve clarity and organization. Updated descriptions for the container setup process, added details on environment setup, and improved formatting for better readability. Included sequence diagrams and key points for quick reference.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager">
+    <option name="groupingKeys">
+      <option value="directory" />
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="2ti1rjYyB7i1dUclpvHkaBurAjx" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "devcontainer.show.open.project.notification": "false",
+    "git-widget-placeholder": "hotfix/devcontainer",
+    "ignore.virus.scanning.warn.message": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-PY-243.25659.43" />
+        <option value="bundled-python-sdk-181015f7ab06-4df51de95216-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-243.25659.43" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="bd9fbeeb-49d9-41d6-8d11-0fca37c99cb5" name="Changes" comment="" />
+      <created>1740820281959</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1740820281959</updated>
+      <workItem from="1740820283297" duration="17000" />
+      <workItem from="1740830843698" duration="1083000" />
+      <workItem from="1741089286154" duration="7479000" />
+      <workItem from="1741099104508" duration="2254000" />
+      <workItem from="1741175092258" duration="1313000" />
+    </task>
+    <task id="LOCAL-00001" summary="Add detailed setup instructions to README&#10;&#10;Expand README to include step-by-step instructions for setting up the development environment using devcontainer.json and Docker. Details cover virtual environment setup, automatic configurations, and usage tips for VS Code and CLI.">
+      <option name="closed" value="true" />
+      <created>1741099732489</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1741099732489</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Update workspace.xml with adjusted work item duration&#10;&#10;The change modifies the duration of a specific work item in the workspace.xml file. This is likely an update to reflect the correct timing for the task. No functional code or logic is affected.">
+      <option name="closed" value="true" />
+      <created>1741099743027</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1741099743027</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Add IntelliJ project configuration files&#10;&#10;Include necessary `.idea` files for project setup, such as inspection profiles, workspace, VCS, and SDK configurations. These files improve development environment consistency and facilitate easier project setup for contributors.">
+      <option name="closed" value="true" />
+      <created>1741100271972</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1741100271972</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Update README with refined Dev Container setup steps&#10;&#10;Simplified and clarified the Dev Container setup process in the README. Adjusted wording to enhance readability and added key details on environment setup, virtual environment activation, and VS Code customization. These changes aim to streamline understanding for users.">
+      <option name="closed" value="true" />
+      <created>1741100286177</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1741100286177</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Simplify and enhance README structure and content&#10;&#10;Refined the README to improve clarity and organization. Updated descriptions for the container setup process, added details on environment setup, and improved formatting for better readability. Included sequence diagrams and key points for quick reference.">
+      <option name="closed" value="true" />
+      <created>1741101293708</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1741101293708</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Add detailed setup instructions to README&#10;&#10;Expand README to include step-by-step instructions for setting up the development environment using devcontainer.json and Docker. Details cover virtual environment setup, automatic configurations, and usage tips for VS Code and CLI." />
+    <MESSAGE value="Update workspace.xml with adjusted work item duration&#10;&#10;The change modifies the duration of a specific work item in the workspace.xml file. This is likely an update to reflect the correct timing for the task. No functional code or logic is affected." />
+    <MESSAGE value="Add IntelliJ project configuration files&#10;&#10;Include necessary `.idea` files for project setup, such as inspection profiles, workspace, VCS, and SDK configurations. These files improve development environment consistency and facilitate easier project setup for contributors." />
+    <MESSAGE value="Update README with refined Dev Container setup steps&#10;&#10;Simplified and clarified the Dev Container setup process in the README. Adjusted wording to enhance readability and added key details on environment setup, virtual environment activation, and VS Code customization. These changes aim to streamline understanding for users." />
+    <MESSAGE value="Simplify and enhance README structure and content&#10;&#10;Refined the README to improve clarity and organization. Updated descriptions for the container setup process, added details on environment setup, and improved formatting for better readability. Included sequence diagrams and key points for quick reference." />
+    <option name="LAST_COMMIT_MESSAGE" value="Simplify and enhance README structure and content&#10;&#10;Refined the README to improve clarity and organization. Updated descriptions for the container setup process, added details on environment setup, and improved formatting for better readability. Included sequence diagrams and key points for quick reference." />
+  </component>
+</project>

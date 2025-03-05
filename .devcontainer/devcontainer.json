@@ -1,15 +1,19 @@
 {
 	"name": "FastAPI Dev Container",
-	"dockerComposeFile": "../docker-compose.yml",
-	"service": "fastapi",
-	"postCreateCommand": "/workspace/.devcontainer/setup.sh",
-	"workspaceFolder": "/workspace",
+	"build": {
+		"dockerfile": "./Dockerfile",// TODO: のちほど 親ディレクトリの本番用 ../Dockerfile を利用 + features でセットアップする形にする
+		"context": ".."  // 必要: buildの基準位置を示す
+	},
+	// "runArgs": ["--network=dev_network"],
 	"containerEnv": {
 		"SHELL": "/bin/bash"
 	},
+	"postCreateCommand": "/workspace/setup.sh",
+	"workspaceFolder": "/workspace",  // 必要: セットアップ完了後に cd する
 	"customizations": {
 		"vscode": {
 			"settings": {
+				"python.defaultInterpreterPath": "/workspace/.venv/bin/python",  // 必要: セットアップ完了後に activate する
 				"editor.defaultFormatter": "ms-python.black-formatter",
 				"editor.formatOnSave":true,
 				"editor.formatOnPaste": true

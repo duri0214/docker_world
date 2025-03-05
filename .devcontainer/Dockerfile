@@ -8,22 +8,28 @@ ARG USER_GID=$USER_UID
 
 ENV TZ=Asia/Tokyo
 
+# `WORKDIR` で指定したカレントディレクトリは、ビルドセッション中のみ適用されます。
+WORKDIR $WORKDIR
+
+# チョンボしないで必要なものを $WORKDIR に転送しましょう
+COPY ./.vscode $WORKDIR/.vscode
+COPY ./setup.sh $WORKDIR
+COPY ./requirements.txt $WORKDIR
+COPY ./src $WORKDIR/src
+
 # ユーザー作成
 RUN groupadd --gid $USER_GID $USER_NAME \
     && useradd --uid $USER_UID --gid $USER_GID -m $USER_NAME
 
 # 必要なパッケージをインストール
 RUN apt-get update && apt-get install -y \
-    bash curl git openssh-client zip \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
+    bash curl git openssh-client zip
 
-# 作業ディレクトリを設定
-WORKDIR $WORKDIR
+# 作業ディレクトリの所有者を設定
+RUN chown -R $USER_NAME:$USER_NAME $WORKDIR
 
 # ユーザー変更
 USER $USER_NAME
 
-# 確認: ここでsleepしないとコンテナが終わってしまう
+# TODO: のちに本番用Dockerfileに移すと良い
 #CMD ["uvicorn", "src.main:app", "--host", "0.0.0.0", "--port", "8000"]
-CMD ["sleep", "infinity"]
