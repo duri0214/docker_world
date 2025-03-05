@@ -48,16 +48,35 @@
 sequenceDiagram
     participant DevContainer as devcontainer.json
     participant Docker as Dockerfile
-    participant DevContainerInstance as devcontainer
+    participant DevContainerInstance as （devcontainer）
     participant SetupScript as setup.sh
 
+    DevContainer->>DevContainer: build context を `..` に設定
     DevContainer->>Docker: Dockerfile をビルド
+    activate Docker
+    activate DevContainerInstance
     Docker->>DevContainerInstance: イメージ作成 & devcontainer 起動
-    DevContainer->>DevContainerInstance: 作業ディレクトリを /workspace に設定
+    Docker->>DevContainerInstance: workdirを `/workspace` に設定
+    Docker->>DevContainerInstance: 必要なfileを $WORKDIR に転送
+    Docker->>DevContainerInstance: `vscode` ユーザー作成
+    Docker->>DevContainerInstance: パッケージをインストール
+    Docker->>DevContainerInstance: 作業ディレクトリの所有者を設定
+    Docker->>DevContainerInstance: `vscode` にユーザー変更
+    deactivate Docker
+    deactivate DevContainerInstance
+
     DevContainer->>SetupScript: postCreateCommand 実行
-    SetupScript->>DevContainerInstance: 仮想環境を作成 & 一時的に有効化 (venv activate)
-    SetupScript->>DevContainerInstance: requirements.txt からパッケージをインストール (pip install)
-    DevContainer->>DevContainerInstance: python.defaultInterpreterPath で仮想環境を再度有効化
+    activate SetupScript
+    SetupScript->>DevContainerInstance: 仮想環境を作成 & activate
+    activate DevContainerInstance
+    SetupScript->>DevContainerInstance: pip install -r requirements.txt
+    deactivate DevContainerInstance
+    deactivate SetupScript
+    
+    DevContainer->>DevContainerInstance: workspaceFolder で workdirを `/workspace` に設定
+    activate DevContainerInstance
+    DevContainer->>DevContainerInstance: python.defaultInterpreterPath で仮想環境を activate
+    deactivate DevContainerInstance
 ```
 ## 設定の重要ポイント
 1. **仮想環境のセットアップ**:
