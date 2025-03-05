@@ -25,7 +25,7 @@ RUN groupadd --gid $USER_GID $USER_NAME \
 RUN apt-get update && apt-get install -y \
     bash curl git openssh-client zip
 
-# 作業ディレクトリを設定
+# 作業ディレクトリの所有者を設定
 RUN chown -R $USER_NAME:$USER_NAME $WORKDIR
 
 # ユーザー変更
