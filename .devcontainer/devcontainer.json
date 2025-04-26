@@ -8,12 +8,12 @@
 	"containerEnv": {
 		"SHELL": "/bin/bash"
 	},
-	"postCreateCommand": "./setup.sh",
+	"postCreateCommand": "/workspace/setup.sh",
 	"workspaceFolder": "/workspace",  // 必要: セットアップ完了後に cd する
 	"customizations": {
 		"vscode": {
 			"settings": {
-				"python.defaultInterpreterPath": "./.venv/bin/python",  // 必要: セットアップ完了後に activate する
+				"python.defaultInterpreterPath": "/workspace/.venv/bin/python",  // 必要: セットアップ完了後に activate する
 				"editor.defaultFormatter": "ms-python.black-formatter",
 				"editor.formatOnSave":true,
 				"editor.formatOnPaste": true
