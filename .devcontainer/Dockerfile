@@ -1,4 +1,4 @@
-FROM python:3.13.3-slim-bullseye
+FROM python:3.12.9-slim-bullseye
 
 # 共通変数
 ARG WORKDIR=/workspace
