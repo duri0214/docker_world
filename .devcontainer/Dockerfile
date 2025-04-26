@@ -15,6 +15,7 @@ WORKDIR $WORKDIR
 COPY ./.vscode $WORKDIR/.vscode
 COPY ./setup.sh $WORKDIR
 COPY ./requirements.txt $WORKDIR
+COPY ./.gitignore $WORKDIR
 COPY ./src $WORKDIR/src
 
 # ユーザー作成
