@@ -20,7 +20,8 @@
 			"extensions": [
 				"ms-python.black-formatter",
 				"ms-python.flake8",
-				"humao.rest-client"
+				"humao.rest-client",
+				"saoudrizwan.claude-dev"
 			]
 		}
 	},
