@@ -7,11 +7,11 @@
  * @note MCPクライアントライブラリが内部的に_metaプロパティやその他の追加プロパティを付与する可能性があるため、index signatureを含めています
  */
 export interface McpToolCallRequest {
-    name: "reverse_text";
-    arguments: {
-        text: string;
-    };
-    [key: string]: any;
+  name: "reverse_text";
+  arguments: {
+    text: string;
+  };
+  [key: string]: any;
 }
 
 /**
@@ -21,8 +21,8 @@ export interface McpToolCallRequest {
  * @property {string} content[].text - 出力される文字列
  */
 export interface McpToolCallResponse {
-    content: Array<{
-        type: "text";
-        text: string;
-    }>;
+  content: Array<{
+    type: "text";
+    text: string;
+  }>;
 }
