@@ -3,7 +3,7 @@
     "configurations": [
       {
         "name": "Run Serve",
-        "type": "debugpy",
+        "type": "python",
         "request": "launch",
         "module": "uvicorn",
         "args": [
@@ -15,7 +15,7 @@
       },
       {
         "name": "Run Tests",
-        "type": "debugpy",
+        "type": "python",
         "request": "launch",
         "module": "pytest",
         "args": ["-vv"]
