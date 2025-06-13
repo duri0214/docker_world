@@ -1,23 +1,26 @@
 from fastapi import FastAPI
+from fastapi_mcp import FastApiMCP
+from src.domain.valueobject.reverse_text import ReverseTextRequest, ReverseTextResponse
 
+# Create a FastAPI app
 app = FastAPI()
 
 
-@app.get("/")
-def read_root():
-    return {"message": "Hello, FastAPI!"}
+# MCPツールとして登録されるエンドポイント（mcp作成前に定義）
+@app.post(
+    "/reverse-text/",
+    operation_id="reverse_text",
+    summary="文字列を逆順にする",
+    description="入力された文字列を逆順にして返します",
+)
+async def reverse_text(request: ReverseTextRequest):
+    """文字列を逆順にするMCPツール"""
+    reversed_text = f"{request.text[::-1]}🚀"
+    return ReverseTextResponse(original_text=request.text, reversed_text=reversed_text)
 
 
-def reverse(text: str) -> str:
-    """
-    与えられた文字列を逆順にして返す。
+# Create an MCP server based on this app（エンドポイント定義後）
+mcp = FastApiMCP(app)
 
-    この関数はpytestのテスト用に作成されています。
-
-    Args:
-        text (str): 逆順にする文字列。
-
-    Returns:
-        str: 逆順になった文字列。
-    """
-    return text[::-1]
+# Mount the MCP server directry to your app
+mcp.mount()
