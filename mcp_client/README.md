@@ -1,4 +1,4 @@
-# docker_world
+# mcp client
 
 ## ネットワークを作成する
 
@@ -6,9 +6,9 @@
 docker network create dev_network
 ```
 
-## mcp-server 設定
+## mcp-client 設定
 
-- `mcp_server` フォルダを開く
+- `mcp_client` フォルダを開く
 - `devcontainer` で開く
 - `F5` で Web サーバを起動
-- `こんにちは　を逆にして` などをチャットに入力して処理結果が返ってくることを確認
+- 処理結果が返ってくることを確認

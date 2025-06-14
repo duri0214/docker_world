@@ -1,7 +1,13 @@
-# docker_world
+# mcp server
+
+## ネットワークを作成する
+
 ```console
 docker network create dev_network
 ```
 
-- MCP_SERVER フォルダを開く
-- devcontainer で開く
+## mcp-server 設定
+
+- `mcp_server` フォルダを開く
+- `devcontainer` で開く
+- `F5` で Web サーバを起動
