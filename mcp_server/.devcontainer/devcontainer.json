@@ -1,0 +1,28 @@
+{
+	"name": "MCP Server Example Dev Container",
+	"build": {
+		"dockerfile": "./Dockerfile",
+		"context": "."  // 必要: buildの基準位置を示す
+	},
+	"runArgs": ["--network=dev_network"],
+	"containerEnv": {
+		"SHELL": "/bin/bash"
+	},
+	"postCreateCommand": ".devcontainer/setup.sh",
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"python.defaultInterpreterPath": "./.venv/bin/python",  // 必要: セットアップ完了後に activate する
+				"editor.defaultFormatter": "ms-python.black-formatter",
+				"editor.formatOnSave":true,
+				"editor.formatOnPaste": true
+			},
+			"extensions": [
+				"ms-python.black-formatter",
+				"ms-python.flake8",
+				"humao.rest-client"
+			]
+		}
+	},
+	"remoteUser": "vscode"  // リテラルで縛ることが重要
+}
